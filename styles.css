@@ -1,0 +1,195 @@
+/* Análisis Bachata — base editorial (sin frameworks)
+   Layout:
+   - Desktop/tablet ancho: sidebar fijo izquierda + contenido
+   - Móvil vertical: sidebar arriba (stack)
+   - Móvil horizontal (landscape): vuelve a sidebar lateral para no perder alto útil
+*/
+
+:root{
+  --sidebar-w: 280px;
+  --gutter: 56px;
+  --text: #111;
+  --muted: #666;
+  --rule: #e6e6e6;
+  --bg: #fff;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  line-height: 1.55;
+}
+
+a{ color: inherit; text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.layout{ min-height: 100vh; }
+
+/* Sidebar (default: lateral fijo) */
+.sidebar{
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  padding: 44px 28px;
+  border-right: 1px solid var(--rule);
+  background: var(--bg);
+  overflow: auto;
+}
+
+.brand{
+  display: block;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: .2px;
+  margin: 0 0 18px 0;
+}
+
+.brand small{
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+.nav h2{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 22px 0 10px;
+  font-weight: 600;
+}
+
+.nav a{
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #222;
+}
+
+.nav a.active{
+  font-weight: 600;
+}
+
+.nav .sep{
+  height: 1px;
+  background: var(--rule);
+  margin: 18px 0;
+}
+
+/* Main */
+.main{
+  margin-left: var(--sidebar-w);
+  padding: 44px var(--gutter) 80px;
+  max-width: 1200px;
+}
+
+.page-title{
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 6px 0;
+}
+
+.page-subtitle{
+  margin: 0 0 26px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+hr.rule{
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 26px 0;
+}
+
+section{
+  margin: 0 0 28px 0;
+}
+
+h2{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 26px 0 8px;
+}
+
+h3{
+  font-size: 16px;
+  font-weight: 600;
+  margin: 18px 0 6px;
+}
+
+p{ margin: 10px 0; color: #1b1b1b; }
+
+ul{ margin: 10px 0 10px 20px; }
+li{ margin: 6px 0; }
+
+figure{
+  margin: 18px 0 26px;
+}
+
+figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  background: #fafafa;
+}
+
+figcaption{
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Audio blocks */
+.audio-block{
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  margin: 10px 0 16px;
+}
+
+audio{ width: 100%; }
+
+/* Responsive: móvil vertical (stack) */
+@media (max-width: 780px){
+  :root{ --gutter: 18px; }
+  .sidebar{
+    position: static;
+    width: auto;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 18px;
+  }
+  .main{
+    margin-left: 0;
+    padding: 20px var(--gutter) 64px;
+  }
+  .page-title{ font-size: 24px; }
+}
+
+/* Override: móvil horizontal (landscape) con ancho suficiente → sidebar lateral */
+@media (max-width: 780px) and (orientation: landscape){
+  :root{ --sidebar-w: 240px; --gutter: 22px; }
+  .sidebar{
+    position: fixed;
+    width: var(--sidebar-w);
+    height: 100vh;
+    border-right: 1px solid var(--rule);
+    border-bottom: 0;
+    padding: 20px 18px;
+  }
+  .main{
+    margin-left: var(--sidebar-w);
+    padding: 20px var(--gutter) 56px;
+  }
+  .brand{ font-size: 20px; margin-bottom: 12px; }
+  .nav a{ padding: 5px 0; }
+}

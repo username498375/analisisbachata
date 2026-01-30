@@ -2,32 +2,178 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <title>Estructura musical – Bachata</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Análisis Bachata — Estructura musical (pendiente)</title>
+
+  <!-- Ajusta solo si tu CSS está en otra ruta -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="layout">
-    <aside class="sidebar" aria-label="Navegación">
-      <a class="brand" href="index.html">Análisis Bachata
-        <small>Material didáctico</small>
-      </a>
-      <nav class="nav">
-        <h2>Secciones</h2>
-        <a href="index.html">Inicio</a>
-        <a href="historia.html">Historia</a>
-        <a href="instrumentos.html">Instrumentos (pendiente)</a>
-        <a class="active" href="estructura.html">Estructura musical</a>
-        <a href="ejemplos.html">Ejemplos de audio (pendiente)</a>
-      </nav>
-    </aside>
 
-    <main class="main" id="contenido">
-      <h1 class="page-title">Estructura musical</h1>
-      <p class="page-subtitle">Pendiente de redactar y añadir ejemplos.</p>
-      <hr class="rule">
-      <p>Contenido en construcción.</p>
-    </main>
-  </div>
+<body>
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar__inner">
+      <h2>Análisis Bachata</h2>
+
+      <nav>
+        <ul>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="instrumentos.html">Instrumentos</a></li>
+          <li><a href="ejemplos.html">Ejemplos de audio</a></li>
+          <li class="active"><a href="estructura.html">Estructura musical</a></li>
+          <li><a href="pasos-por-seccion.html">Pasos por sección</a></li>
+        </ul>
+
+        <!-- NOTAS: siempre al final -->
+        <div class="nav-notes">
+          <h3>Notas</h3>
+          <ul>
+            <li>Proyecto didáctico y no comercial.</li>
+            <li>Audios integrados sin descarga directa.</li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+
+    <header>
+      <h1>Estructura musical (pensada para pista)</h1>
+      <p>
+        Aprende a <strong>contar</strong>, <strong>reconocer cambios</strong>
+        y <strong>adaptar tu baile</strong> según la energía de la música.
+      </p>
+    </header>
+
+    <!-- CANCIÓN COMPLETA -->
+    <section>
+      <h2>Canción completa (entrenamiento)</h2>
+      <audio controls preload="metadata">
+        <source src="audio/baila_entre_mis_manos.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+      </audio>
+    </section>
+
+    <!-- CONTEO -->
+    <section>
+      <h2>Conteo básico</h2>
+      <ul>
+        <li>Bachata: <strong>1-2-3-4-5-6-7-8</strong></li>
+        <li>Los cambios suelen sentirse <strong>al final del 8</strong></li>
+      </ul>
+    </section>
+
+    <!-- PARTES -->
+    <section>
+      <h2>Partes habituales</h2>
+      <ul>
+        <li><strong>Intro</strong> – preparación</li>
+        <li><strong>Derecho</strong> – base estable</li>
+        <li><strong>Majao</strong> – subida de energía</li>
+        <li><strong>Mambo</strong> – pico energético</li>
+      </ul>
+    </section>
+
+    <!-- INTRO -->
+    <section>
+      <h2>Intro</h2>
+      <ul>
+        <li><strong>Qué oigo:</strong> pocos instrumentos, entrada progresiva</li>
+        <li><strong>Energía:</strong> baja</li>
+        <li><strong>Qué hago:</strong> simple, contar, escuchar</li>
+      </ul>
+      <audio controls preload="metadata">
+        <source src="audio/intro.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- DERECHO -->
+    <section>
+      <h2>Derecho</h2>
+      <ul>
+        <li><strong>Qué oigo:</strong> ritmo estable, base clara</li>
+        <li><strong>Energía:</strong> media</li>
+        <li><strong>Qué hago:</strong> conexión, poco espacio</li>
+      </ul>
+      <audio controls preload="metadata">
+        <source src="audio/derecho.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- MAJAO -->
+    <section>
+      <h2>Majao</h2>
+      <ul>
+        <li><strong>Qué oigo:</strong> más potencia, percusión marcada</li>
+        <li><strong>Energía:</strong> alta</li>
+        <li><strong>Qué hago:</strong> más espacio, figuras claras</li>
+      </ul>
+
+      <!-- 🔴 NOMBRE ACTUALIZADO -->
+      <audio controls preload="metadata">
+        <source src="audio/derecho+majao.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- MAMBO -->
+    <section>
+      <h2>Mambo</h2>
+      <ul>
+        <li><strong>Qué oigo:</strong> ruptura o pico instrumental</li>
+        <li><strong>Energía:</strong> máxima</li>
+        <li><strong>Qué hago:</strong> footwork / pasos libres</li>
+      </ul>
+      <audio controls preload="metadata">
+        <source src="audio/mambo.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- CAMBIO DE TIEMPO -->
+    <section>
+      <h2>Cambio de tiempo</h2>
+      <ul>
+        <li>Silencio, golpe seco o música casi vacía</li>
+        <li>No cambiamos el conteo, cambiamos el uso del tiempo</li>
+        <li><strong>Regla escuela:</strong> repetir <strong>5-6-7-8</strong></li>
+      </ul>
+      <audio controls preload="metadata">
+        <source src="audio/cambio.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- IDEA FINAL -->
+    <section>
+      <h2>Idea clave</h2>
+      <p>
+        Aunque la canción sea rápida, <strong>no siempre tiene la misma energía</strong>.
+        Cuando la música cambia, <strong>tu baile debe cambiar</strong>.
+      </p>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section>
+      <h2>Checklist rápido</h2>
+      <ul>
+        <li>¿Estoy contando 1-8?</li>
+        <li>¿En qué parte estoy?</li>
+        <li>¿Ha cambiado la energía?</li>
+        <li>¿Mi baile refleja ese cambio?</li>
+      </ul>
+    </section>
+
+    <!-- NOTA LEGAL -->
+    <section class="legal-note">
+      <p>
+        Audios usados con finalidad didáctica y no comercial.
+        Si existe cualquier reclamación de derechos, el contenido será retirado.
+      </p>
+    </section>
+
+  </main>
+</div>
 </body>
 </html>

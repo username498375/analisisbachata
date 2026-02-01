@@ -193,3 +193,65 @@ audio{ width: 100%; }
   .brand{ font-size: 20px; margin-bottom: 12px; }
   .nav a{ padding: 5px 0; }
 }
+/* === Cabecera superior tipo Wikipedia === */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 100;
+}
+
+.topbar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+/* === Hero: título principal === */
+.hero {
+  max-width: 900px;
+  margin: 20px auto 10px;
+  padding: 0 12px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin: 0 0 6px 0;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+/* === Navegación de secciones === */
+.section-nav {
+  max-width: 900px;
+  margin: 16px auto;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-nav a {
+  display: inline-block;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+}
+
+.section-nav a:not(:last-child) {
+  border-right: 1px solid #e5e7eb;
+}
+
+.section-nav a:hover {
+  background: #f9fafb;
+}

@@ -164,40 +164,46 @@ audio{ width: 100%; }
   :root{ --gutter: 18px; }
 
   /* La "sidebar" se convierte en barra superior (topbar) */
-  .sidebar{
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: auto;
-    height: auto;
-    padding: 12px 14px;
-    border-right: 0;
-    border-bottom: 1px solid var(--rule);
-    background: #f3f4f6; /* presencia */
-    overflow: visible;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+.sidebar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  padding: 10px 12px 12px;
+  border-right: 0;
+  border-bottom: 1px solid var(--rule);
+  background: #f3f4f6;
+  overflow: visible;
 
-  .brand{
-    margin: 0;
-    font-size: 18px;
-    line-height: 1.1;
-    white-space: nowrap;
-  }
+  /* dos filas: título arriba, menú abajo */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.brand{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.1;
+  text-align: center;       /* si lo prefieres a la izquierda, cámbialo */
+  width: 100%;
+}
 
   .brand small{
     display: none; /* compacto en móvil vertical */
   }
 
   /* Navegación en línea */
-  .nav{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-  }
+.nav{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;  /* si quieres alineación izquierda: flex-start */
+  gap: 8px 10px;
+  width: 100%;
+}
 
   /* Ocultamos headings/separador para que sea "un solo menú" */
   .nav h2,

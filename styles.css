@@ -1,7 +1,7 @@
 /* Análisis Bachata — base editorial (sin frameworks)
    Layout:
    - Desktop/tablet ancho: sidebar fijo izquierda + contenido
-   - Móvil vertical: sidebar arriba (stack)
+   - Móvil vertical: menú superior (barra compacta)
    - Móvil horizontal (landscape): vuelve a sidebar lateral para no perder alto útil
 */
 
@@ -157,101 +157,131 @@ figcaption{
 
 audio{ width: 100%; }
 
-/* Responsive: móvil vertical (stack) */
+/* =========================================================
+   Responsive: móvil vertical (portrait) → MENÚ SUPERIOR ÚNICO
+   ========================================================= */
 @media (max-width: 780px){
   :root{ --gutter: 18px; }
+
+  /* La "sidebar" se convierte en barra superior (topbar) */
   .sidebar{
-    position: static;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: auto;
     height: auto;
+    padding: 12px 14px;
     border-right: 0;
     border-bottom: 1px solid var(--rule);
-    padding: 18px 18px;
+    background: #f3f4f6; /* presencia */
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    gap: 14px;
   }
+
+  .brand{
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .brand small{
+    display: none; /* compacto en móvil vertical */
+  }
+
+  /* Navegación en línea */
+  .nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Ocultamos headings/separador para que sea "un solo menú" */
+  .nav h2,
+  .nav .sep{
+    display: none;
+  }
+
+  .nav a{
+    display: inline-block;
+    padding: 6px 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    color: #111;
+    text-decoration: none;
+  }
+
+  .nav a:hover{
+    background: #eaecef;
+    text-decoration: none;
+  }
+
+  /* El contenido vuelve a ocupar todo el ancho */
   .main{
     margin-left: 0;
     padding: 20px var(--gutter) 64px;
   }
+
   .page-title{ font-size: 24px; }
 }
 
-/* Override: móvil horizontal (landscape) con ancho suficiente → sidebar lateral */
+/* =========================================================
+   Override: móvil horizontal (landscape) → vuelve a LATERAL
+   ========================================================= */
 @media (max-width: 780px) and (orientation: landscape){
   :root{ --sidebar-w: 240px; --gutter: 22px; }
+
   .sidebar{
     position: fixed;
+    top: 0; left: 0;
     width: var(--sidebar-w);
     height: 100vh;
+    padding: 20px 18px;
     border-right: 1px solid var(--rule);
     border-bottom: 0;
-    padding: 20px 18px;
+    background: var(--bg);
+    overflow: auto;
+
+    /* cancelar layout topbar */
+    display: block;
   }
+
+  .brand{
+    font-size: 20px;
+    margin-bottom: 12px;
+    white-space: normal;
+  }
+
+  .brand small{
+    display: block; /* vuelve en lateral */
+  }
+
+  /* restaurar navegación vertical */
+  .nav{
+    display: block;
+  }
+
+  .nav h2,
+  .nav .sep{
+    display: block;
+  }
+
+  .nav a{
+    display: block;
+    padding: 5px 0;
+    border-radius: 0;
+  }
+
+  .nav a:hover{
+    background: transparent;
+    text-decoration: underline;
+  }
+
   .main{
     margin-left: var(--sidebar-w);
     padding: 20px var(--gutter) 56px;
   }
-  .brand{ font-size: 20px; margin-bottom: 12px; }
-  .nav a{ padding: 5px 0; }
-}
-/* === Cabecera superior tipo Wikipedia === */
-.topbar {
-  position: sticky;
-  top: 0;
-  background: #f3f4f6;
-  border-bottom: 1px solid #e5e7eb;
-  z-index: 100;
-}
-
-.topbar-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 10px 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.topbar-title {
-  font-size: 20px;
-  font-weight: 700;
-}
-/* === Hero: título principal === */
-.hero {
-  max-width: 900px;
-  margin: 20px auto 10px;
-  padding: 0 12px;
-}
-
-.hero h1 {
-  font-size: 38px;
-  margin: 0 0 6px 0;
-}
-
-.hero p {
-  font-size: 16px;
-  color: #555;
-  margin: 0;
-}
-/* === Navegación de secciones === */
-.section-nav {
-  max-width: 900px;
-  margin: 16px auto;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.section-nav a {
-  display: inline-block;
-  padding: 10px 14px;
-  font-size: 15px;
-  color: #000;
-  text-decoration: none;
-}
-
-.section-nav a:not(:last-child) {
-  border-right: 1px solid #e5e7eb;
-}
-
-.section-nav a:hover {
-  background: #f9fafb;
 }

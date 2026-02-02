@@ -24,8 +24,29 @@ body{
   line-height: 1.55;
 }
 
-a{ color: inherit; text-decoration: none; }
-a:hover{ text-decoration: underline; }
+/* =========================================================
+   Links: por defecto “contenido”, la nav se controla aparte
+   ========================================================= */
+a{
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+a:hover{
+  text-decoration-thickness: 0.12em;
+}
+a:focus-visible{
+  outline: 3px solid rgba(11,87,208,.22);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* La navegación mantiene su look (sin subrayado constante) */
+.nav a{
+  text-decoration: none;
+}
+/* (El hover específico de la nav lo controlas en sus reglas más abajo) */
 
 .layout{ min-height: 100vh; }
 
@@ -164,46 +185,46 @@ audio{ width: 100%; }
   :root{ --gutter: 18px; }
 
   /* La "sidebar" se convierte en barra superior (topbar) */
-.sidebar{
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: auto;
-  height: auto;
-  padding: 10px 12px 12px;
-  border-right: 0;
-  border-bottom: 1px solid var(--rule);
-  background: #f3f4f6;
-  overflow: visible;
+  .sidebar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    padding: 10px 12px 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+    background: #f3f4f6;
+    overflow: visible;
 
-  /* dos filas: título arriba, menú abajo */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-}
+    /* dos filas: título arriba, menú abajo */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
 
-.brand{
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.1;
-  text-align: center;       /* si lo prefieres a la izquierda, cámbialo */
-  width: 100%;
-}
+  .brand{
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.1;
+    text-align: center;       /* si lo prefieres a la izquierda, cámbialo */
+    width: 100%;
+  }
 
   .brand small{
     display: none; /* compacto en móvil vertical */
   }
 
   /* Navegación en línea */
-.nav{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;  /* si quieres alineación izquierda: flex-start */
-  gap: 8px 10px;
-  width: 100%;
-}
+  .nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;  /* si quieres alineación izquierda: flex-start */
+    gap: 8px 10px;
+    width: 100%;
+  }
 
   /* Ocultamos headings/separador para que sea "un solo menú" */
   .nav h2,

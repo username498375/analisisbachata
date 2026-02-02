@@ -12,6 +12,9 @@
   --muted: #666;
   --rule: #e6e6e6;
   --bg: #fff;
+
+  /* NUEVO: fondo suave para sidebar (desktop + landscape) */
+  --sidebar-bg: #f6f7f9;
 }
 
 *{ box-sizing: border-box; }
@@ -46,7 +49,6 @@ a:focus-visible{
 .nav a{
   text-decoration: none;
 }
-/* (El hover específico de la nav lo controlas en sus reglas más abajo) */
 
 .layout{ min-height: 100vh; }
 
@@ -58,7 +60,10 @@ a:focus-visible{
   height: 100vh;
   padding: 44px 28px;
   border-right: 1px solid var(--rule);
-  background: var(--bg);
+
+  /* CAMBIO: fondo suave */
+  background: var(--sidebar-bg);
+
   overflow: auto;
 }
 
@@ -194,7 +199,10 @@ audio{ width: 100%; }
     padding: 10px 12px 12px;
     border-right: 0;
     border-bottom: 1px solid var(--rule);
+
+    /* Mantener topbar tal como estaba */
     background: #f3f4f6;
+
     overflow: visible;
 
     /* dos filas: título arriba, menú abajo */
@@ -269,7 +277,10 @@ audio{ width: 100%; }
     padding: 20px 18px;
     border-right: 1px solid var(--rule);
     border-bottom: 0;
-    background: var(--bg);
+
+    /* CAMBIO: fondo suave también en lateral landscape */
+    background: var(--sidebar-bg);
+
     overflow: auto;
 
     /* cancelar layout topbar */

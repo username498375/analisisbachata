@@ -13,8 +13,8 @@
   --rule: #e6e6e6;
   --bg: #fff;
 
-  /* NUEVO: fondo suave para sidebar (desktop + landscape) */
-  --sidebar-bg: #f6f7f9;
+  /* CAMBIO: marrón suave / beige cálido */
+  --sidebar-bg: #f3efe9;
 }
 
 *{ box-sizing: border-box; }
@@ -45,7 +45,7 @@ a:focus-visible{
   border-radius: 6px;
 }
 
-/* La navegación mantiene su look (sin subrayado constante) */
+/* La navegación mantiene su look */
 .nav a{
   text-decoration: none;
 }
@@ -60,10 +60,7 @@ a:focus-visible{
   height: 100vh;
   padding: 44px 28px;
   border-right: 1px solid var(--rule);
-
-  /* CAMBIO: fondo suave */
   background: var(--sidebar-bg);
-
   overflow: auto;
 }
 
@@ -189,7 +186,6 @@ audio{ width: 100%; }
 @media (max-width: 780px){
   :root{ --gutter: 18px; }
 
-  /* La "sidebar" se convierte en barra superior (topbar) */
   .sidebar{
     position: sticky;
     top: 0;
@@ -199,16 +195,11 @@ audio{ width: 100%; }
     padding: 10px 12px 12px;
     border-right: 0;
     border-bottom: 1px solid var(--rule);
-
-    /* Mantener topbar tal como estaba */
-    background: #f3f4f6;
-
+    background: #f3f4f6; /* se mantiene neutro en móvil */
     overflow: visible;
 
-    /* dos filas: título arriba, menú abajo */
     display: flex;
     flex-direction: column;
-    align-items: stretch;
     gap: 8px;
   }
 
@@ -216,45 +207,30 @@ audio{ width: 100%; }
     margin: 0;
     font-size: 18px;
     line-height: 1.1;
-    text-align: center;       /* si lo prefieres a la izquierda, cámbialo */
-    width: 100%;
+    text-align: center;
   }
 
-  .brand small{
-    display: none; /* compacto en móvil vertical */
-  }
+  .brand small{ display: none; }
 
-  /* Navegación en línea */
   .nav{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;  /* si quieres alineación izquierda: flex-start */
+    justify-content: center;
     gap: 8px 10px;
-    width: 100%;
   }
 
-  /* Ocultamos headings/separador para que sea "un solo menú" */
   .nav h2,
-  .nav .sep{
-    display: none;
-  }
+  .nav .sep{ display: none; }
 
   .nav a{
-    display: inline-block;
     padding: 6px 8px;
-    font-size: 14px;
     border-radius: 8px;
-    color: #111;
-    text-decoration: none;
   }
 
   .nav a:hover{
     background: #eaecef;
-    text-decoration: none;
   }
 
-  /* El contenido vuelve a ocupar todo el ancho */
   .main{
     margin-left: 0;
     padding: 20px var(--gutter) 64px;
@@ -271,50 +247,25 @@ audio{ width: 100%; }
 
   .sidebar{
     position: fixed;
-    top: 0; left: 0;
     width: var(--sidebar-w);
     height: 100vh;
     padding: 20px 18px;
     border-right: 1px solid var(--rule);
-    border-bottom: 0;
-
-    /* CAMBIO: fondo suave también en lateral landscape */
     background: var(--sidebar-bg);
-
     overflow: auto;
-
-    /* cancelar layout topbar */
     display: block;
   }
 
-  .brand{
-    font-size: 20px;
-    margin-bottom: 12px;
-    white-space: normal;
-  }
+  .brand small{ display: block; }
 
-  .brand small{
-    display: block; /* vuelve en lateral */
-  }
-
-  /* restaurar navegación vertical */
   .nav{
     display: block;
   }
 
   .nav h2,
-  .nav .sep{
-    display: block;
-  }
-
-  .nav a{
-    display: block;
-    padding: 5px 0;
-    border-radius: 0;
-  }
+  .nav .sep{ display: block; }
 
   .nav a:hover{
-    background: transparent;
     text-decoration: underline;
   }
 

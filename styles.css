@@ -275,76 +275,89 @@ audio{ width: 100%; }
   }
 }
 /* =========================================================
-   Modern hero (solo estructura visual, sin frameworks)
+   HERO — versión con impacto visual (override)
    ========================================================= */
-
-/* Tokens suaves (no rompen nada existente) */
 :root{
-  --hero-bg: #f6f4ef;     /* beige cálido suave */
+  --hero-bg-1: #f7f3ec;        /* beige cálido */
+  --hero-bg-2: #fbfaf8;        /* casi blanco */
   --hero-border: rgba(0,0,0,.08);
+  --hero-shadow: 0 10px 26px rgba(0,0,0,.08);
+  --hero-accent: #b89a75;      /* marrón suave */
   --hero-title: #111;
-  --hero-sub: #4b4b4b;
+  --hero-sub: #444;
 }
 
-/* Encabezado editorial */
 .page-hero{
-  background: var(--hero-bg);
+  position: relative;
+  background: linear-gradient(180deg, var(--hero-bg-1), var(--hero-bg-2));
   border: 1px solid var(--hero-border);
-  border-radius: 14px;
-  padding: 22px 22px;
-  margin: 0 0 22px 0;
+  border-radius: 16px;
+  padding: 26px 26px;
+  margin: 0 0 26px 0;
+  box-shadow: var(--hero-shadow);
+}
+
+.page-hero::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--hero-accent);
+  opacity: .75;
 }
 
 .page-hero .kicker{
   font-size: 11px;
-  letter-spacing: .14em;
+  letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .page-hero .page-title{
-  margin: 0 0 8px 0;
-  font-size: 34px;
-  line-height: 1.08;
+  margin: 0 0 10px 0;
+  font-size: 44px;
+  line-height: 1.02;
+  font-weight: 700;
   color: var(--hero-title);
 }
 
 .page-hero .page-subtitle{
   margin: 0;
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--hero-sub);
+  max-width: 70ch;
 }
 
 .page-hero .hero-rule{
   height: 1px;
   background: rgba(0,0,0,.10);
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
-/* Desktop: un poco más de presencia */
+/* Desktop */
 @media (min-width: 900px){
   .page-hero{
-    padding: 26px 28px;
-    border-radius: 16px;
-  }
-  .page-hero .page-title{
-    font-size: 42px;
-  }
-  .page-hero .page-subtitle{
-    font-size: 16px;
+    padding: 30px 32px;
   }
 }
 
-/* Móvil: compacto, sin perder jerarquía */
+/* Móvil */
 @media (max-width: 780px){
   .page-hero{
-    padding: 16px 14px;
-    border-radius: 12px;
-    margin-bottom: 16px;
+    padding: 18px 16px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  }
+  .page-hero::before{
+    top: 14px;
+    bottom: 14px;
   }
   .page-hero .page-title{
-    font-size: 28px;
+    font-size: 32px;
   }
 }
